@@ -27,3 +27,4 @@ add_subdirectory(cartographer_ros/cartographer_ros)
 # The rviz plugin has to be built as a shared library
 set(BUILD_SHARED_LIBS ON)
 add_subdirectory(cartographer_ros/cartographer_rviz)
+add_subdirectory(cartographer_ros/docs)
