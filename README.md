@@ -2,6 +2,8 @@
 
 This repository contains a CMake project which builds the Google Cartographer library and the ROS node in a single project, which facilitates easier debugging in an IDE such as CLion or KDevelop.
 
+Additionally, this repository mirrors both libcartographer (from repository [googlecartographer/cartographer](https://github.com/googlecartographer/cartographer)) and the ROS integration (from repository [googlecartographer/cartographer_ros](https://github.com/googlecartographer/cartographer_ros)), with the complete development history of both projects interleaved as a linear commit tree. This enables easier testing of earlier versions of Cartographer, since changes in the library often require changes in the ROS integration. In this repository, the two histories are synchronized.
+
 #### Usage
 
 Be sure to source the ROS Kinetic environment for your shell (e.g. `source /opt/ros/kinetic/setup.bash`), even when when using an IDE.
@@ -11,13 +13,12 @@ First, clone this repository:
 git clone https://github.com/ojura/cartographer_superbuild.git
 ```
 
-Next, clone the Cartographer library, the Ceres library and the ROS nodes into the super-build directory:
+Next, clone the Ceres library into the super-build directory:
 ```
 cd cartographer_superbuild
-git clone https://github.com/googlecartographer/cartographer.git
-git clone https://github.com/googlecartographer/cartographer_ros.git
 git clone https://ceres-solver.googlesource.com/ceres-solver.git
 ```
+
 Install the prerequisites:
 
 ```
