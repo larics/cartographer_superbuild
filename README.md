@@ -4,17 +4,36 @@ This repository contains a CMake project which builds the Google Cartographer li
 
 #### Usage
 
-First, clone this repository:
-`git clone https://github.com/ojura/cartographer_superbuild`
+Be sure to source the ROS Kinetic environment for your shell (e.g. `source /opt/ros/kinetic/setup.bash`), even when when using an IDE.
 
-Next, clone the Cartographer library and the ROS nodes into the super-build directory:
+First, clone this repository:
+```
+git clone https://github.com/ojura/cartographer_superbuild.git
+```
+
+Next, clone the Cartographer library, the Ceres library and the ROS nodes into the super-build directory:
 ```
 cd cartographer_superbuild
-git clone https://github.com/ojura/cartographer
-git clone https://github.com/ojura/cartographer_ros
+git clone https://github.com/ojura/cartographer.git
+git clone https://github.com/ojura/cartographer_ros.git
+git clone https://ceres-solver.googlesource.com/ceres-solver.git
 ```
+Install the prerequisites:
 
-Be sure to source the ROS Kinetic environment for your shell (e.g. `source /opt/ros/kinetic/setup.bash`), especially when using an IDE.
+```
+sudo apt install -y python-rosdep
+
+sudo rosdep init ## you have probably executed rosdep init and update when installing ROS
+rosdep update    ## and can safely skip it here in that case
+
+rosdep install --from-paths . --ignore-src --rosdistro=${ROS_DISTRO} -y
+
+cd ceres-solver
+cmake .
+make -j8
+sudo make install
+cd ..
+```
 
 #### Building with CMake
 From here, you can follow the classic build pattern for a CMake build: `mkdir build`, `cd build`, `cmake ../`, `make -j8`. The catkin workspace can be sourced from `build/devel/setup.bash` if you wish to use `rosrun` or `roslaunch`.
