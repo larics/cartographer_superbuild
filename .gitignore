@@ -53,4 +53,5 @@ CATKIN_IGNORE
 /cmake-build-debug
 /cmake-build-relwithdebinfo
 /.idea
-
+sveradi/
+rfcs/
