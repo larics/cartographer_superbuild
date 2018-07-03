@@ -1,0 +1,1 @@
+cartographer/ and cartographer_ros/ have not been modified from upstream. If replacing/updating cartographer_ros, it may be necessary to update ros_stub/include/cartographer_ros_msgs from a real ROS build.

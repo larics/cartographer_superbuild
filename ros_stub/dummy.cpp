@@ -1,11 +1,21 @@
 #include <ros/ros.h>
+#include <tf2_ros/static_transform_broadcaster.h>
+#include <tf2_ros/transform_broadcaster.h>
+#include <tf2_ros/transform_listener.h>
+#include <urdf/model.h>
+
 
 namespace ros {
 
 bool ok() { return true; }
+void spin() { };
 bool isInitialized() { return true; }
 
 ServiceServer::~ServiceServer() { };
+
+  Subscriber NodeHandle::subscribe(SubscribeOptions& ops) {
+    return {};
+  }
 
 namespace console {
   bool g_initialized = false;
@@ -54,8 +64,29 @@ void start() { }
 void shutdown() { }
 
 ServiceServer NodeHandle::advertiseService(AdvertiseServiceOptions& ops) { return {}; };
+Publisher NodeHandle::advertise(ros::AdvertiseOptions&) {return {}; };
 NodeHandle::NodeHandle(const std::string&, const std::map<std::string, std::string>&) { };
 NodeHandle::~NodeHandle() { };
+WallTimer::~WallTimer() { };
+WallTimer::WallTimer(ros::WallTimer const&) { };
+void WallTimer::start() { };
+void Timer::start() { };
+Timer::~Timer() { };
+Timer::Timer(ros::Timer const&) { };
+AsyncSpinner::AsyncSpinner(unsigned int) { };
+void AsyncSpinner::start() { };
+
+WallTimer ros::NodeHandle::createWallTimer(
+ros::WallDuration, boost::function<void (ros::WallTimerEvent const&)> const&, bool, bool) const { return {}; };
+Timer ros::NodeHandle::createTimer(ros::Duration, boost::function<void (ros::TimerEvent const&)> const&, bool, bool) const {
+ return {}; };
+
+ServiceServer::ServiceServer(ros::ServiceServer const&) { };
+Subscriber::Subscriber(ros::Subscriber const&) { };
+Publisher::~Publisher() { };
+Subscriber::~Subscriber() { };
+void Subscriber::shutdown() { };
+uint32_t Publisher::getNumSubscribers() const { return 0; }
 
   bool service::exists(const std::string& service_name, bool print_failure_reason) { return false; }
 
@@ -119,4 +150,15 @@ const std::map<std::string, std::string>& getUnresolvedRemappings() {
 
 void waitForShutdown() { }
 
+}
+
+namespace tf2_ros {
+StaticTransformBroadcaster::StaticTransformBroadcaster() { };
+void StaticTransformBroadcaster::sendTransform(const std::vector<geometry_msgs::TransformStamped>&) { };
+void StaticTransformBroadcaster::sendTransform(const geometry_msgs::TransformStamped&) { };
+TransformBroadcaster::TransformBroadcaster() { };
+void TransformBroadcaster::sendTransform(const std::vector<geometry_msgs::TransformStamped>&) { };
+void TransformBroadcaster::sendTransform(const geometry_msgs::TransformStamped&) { };
+TransformListener::TransformListener(tf2::BufferCore& bf, bool) : buffer_(bf) { };
+TransformListener::~TransformListener() { };
 }

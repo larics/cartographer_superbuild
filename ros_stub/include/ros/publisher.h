@@ -62,6 +62,7 @@ namespace ros
     template <typename M>
       void publish(const boost::shared_ptr<M>& message) const
     {
+      /*
       using namespace serialization;
 
       if (!impl_)
@@ -85,7 +86,7 @@ namespace ros
       m.type_info = &typeid(M);
       m.message = message;
 
-      publish(boost::bind(serializeMessage<M>, boost::ref(*message)), m);
+      publish(boost::bind(serializeMessage<M>, boost::ref(*message)), m);*/
     }
 
     /**
@@ -94,6 +95,7 @@ namespace ros
     template <typename M>
       void publish(const M& message) const
     {
+      /*
       using namespace serialization;
       namespace mt = ros::message_traits;
 
@@ -115,7 +117,7 @@ namespace ros
                      impl_->datatype_.c_str(), impl_->md5sum_.c_str());
 
       SerializedMessage m;
-      publish(boost::bind(serializeMessage<M>, boost::ref(message)), m);
+      publish(boost::bind(serializeMessage<M>, boost::ref(message)), m);*/
     }
 
     /**

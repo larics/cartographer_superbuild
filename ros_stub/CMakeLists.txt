@@ -31,4 +31,5 @@ target_link_libraries(ros_stub PUBLIC
     ${BZIP2_LIBRARIES}
     ${LZ4_LIBRARIES}
     console_bridge
-    ${Boost_LIBRARIES})
+    ${Boost_LIBRARIES}
+    urdfdom_model)
