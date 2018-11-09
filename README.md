@@ -4,7 +4,7 @@ This repository contains a CMake project which builds the Google Cartographer li
 
 #### Usage
 
-Be sure to source the ROS Kinetic environment for your shell (e.g. `source /opt/ros/kinetic/setup.bash`), even when when using an IDE.
+Be sure to source your ROS environment for your shell (e.g. `source /opt/ros/kinetic/setup.bash`), even when when using an IDE.
 
 First, clone this repository:
 ```
