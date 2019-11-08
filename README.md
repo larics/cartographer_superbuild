@@ -16,7 +16,6 @@ Next, clone the Cartographer library, the Ceres library and the ROS nodes into t
 cd cartographer_superbuild
 git clone https://github.com/googlecartographer/cartographer.git
 git clone https://github.com/googlecartographer/cartographer_ros.git
-git clone https://ceres-solver.googlesource.com/ceres-solver.git
 ```
 Install the prerequisites:
 
@@ -27,12 +26,6 @@ sudo rosdep init ## you have probably executed rosdep init and update when insta
 rosdep update    ## and can safely skip it here in that case
 
 rosdep install --from-paths . --ignore-src --rosdistro=${ROS_DISTRO} -y
-
-cd ceres-solver
-cmake .
-make -j8
-sudo make install
-cd ..
 ```
 
 #### Building with CMake
